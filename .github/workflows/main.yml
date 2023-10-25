@@ -32,7 +32,7 @@ jobs:
       env:
           REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           REPOSITORY: fesia255
-          IMAGE_TAG: 1.1
+          IMAGE_TAG: latest
       run: |
           # Obtenez l'identifiant unique de l'image que vous souhaitez supprimer (par exemple, en utilisant une requête AWS CLI)
           IMAGE_DIGEST=$(aws ecr describe-images --repository-name $REPOSITORY --query 'imageIds[0].imageDigest' --output text)
