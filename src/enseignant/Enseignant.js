@@ -146,7 +146,7 @@ export default function Enseignant() {
                 <form  onSubmit={handleSubmit}>
                 <ModalBody>
                     <ModalTitle className='text-center'>
-                        <h5 className="card-title" style={{fontFamily: "Century gothic",color:"#008cba",fontWeight:"bold"}}>Nouveau enseignant</h5><br/>
+                        <h5 className="card-title" style={{fontFamily: "Century gothic",color:"#008cba",fontWeight:"bold"}}>Nouveau enseignants</h5><br/>
                     </ModalTitle>
 
                     <input 
