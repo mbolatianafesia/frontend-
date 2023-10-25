@@ -1,0 +1,64 @@
+button{
+    font-family: "century gothic";
+    border:none;
+    background-color: transparent;
+    color:white;
+    font-size:6px;
+}
+
+.acc{
+    font-family: "century gothic";
+    color:#008BBE;
+    font-size:13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    letter-spacing: 1px;
+}
+
+.link{
+    text-decoration: none;
+    text-align: left;
+
+}
+
+#logo{
+    /* height: */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 8%;
+
+    /* border:1px solid red; */
+}
+
+#logo h6{
+    font-family: "century gothic";
+    letter-spacing: 1px;
+    /* font-weight: 600; */
+    color:  #37c6fa;
+    text-shadow: 0 0 1px #008BBE;
+}
+
+#logo img{
+    height:45px;
+}
+/* .navbar{
+    /* border:1px solid pink;
+} */ 
+.navbar-nav{
+    /* border:1px solid pink; */
+    margin-right:8%;    
+}
+
+.navbar-brand{
+    /* border:1px solid green; */
+    width: 120px;
+}
+
+.acc:hover{
+    color:#008BBE;
+    text-shadow:0 0 1px #008BBE;
+}
