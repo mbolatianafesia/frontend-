@@ -1,0 +1,51 @@
+name: React app deploy to eks
+on: 
+ push:
+   branches: [main]
+ pull_request:
+   branches: [main]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Install Kubectl
+      uses: azure/setup-kubectl@v2.0
+      with:
+        version: 'v1.24.0' # default is latest 
+      id: install
+
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-2
+
+    - name: Login to Amazon ECR Public
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
+   
+    - name: Build, tag, and push docker image to Amazon ECR Public
+      env:
+          REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          REPOSITORY: devops/john
+          IMAGE_TAG: 1.1
+      run: |
+          # Obtenez l'identifiant unique de l'image que vous souhaitez supprimer (par exemple, en utilisant une requête AWS CLI)
+          IMAGE_DIGEST=$(aws ecr describe-images --repository-name $REPOSITORY --query 'imageIds[0].imageDigest' --output text)
+          # Supprimez l'image du registre ECR
+          aws ecr batch-delete-image --repository-name $REPOSITORY --image-ids imageDigest=$IMAGE_DIGEST
+          docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
+          docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
+          
+    - name: Update kube config
+      run: aws eks update-kubeconfig --name john
+
+    - name: Deploy to EKS
+      run: |
+           kubectl delete pod --all
+           kubectl apply -f deployment.yaml
+           kubectl apply -f service.yaml
