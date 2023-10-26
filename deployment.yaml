@@ -17,4 +17,4 @@ spec:
           image: 243560554745.dkr.ecr.eu-west-3.amazonaws.com/fesia255:latest
           imagePullPolicy: Always
           ports:
-            - containerPort: 80
+            - containerPort: 8080
