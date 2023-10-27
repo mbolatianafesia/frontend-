@@ -9,5 +9,5 @@ RUN npm run build
 # Stage 2 - the production environment
 FROM nginx:1.21.1-alpine
 COPY --from=build-deps /usr/src/app/build /usr/share/nginx/html
-EXPOSE 80
+EXPOSE 8080
 CMD ["nginx", "-g", "daemon off;"]
