@@ -46,6 +46,5 @@ jobs:
 
     - name: Deploy to EKS
       run: |
-           kubectl delete pod --all
            kubectl apply -f deployment.yaml
            kubectl apply -f service.yaml
