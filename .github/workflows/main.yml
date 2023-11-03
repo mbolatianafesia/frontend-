@@ -44,7 +44,7 @@ jobs:
     - name: Update kube config
       run: aws eks update-kubeconfig --name gestionProf
 
-    - name: Reload pods EKS
+    - name: Reload to EKS
       run: |
            sed -i 's/image: 243560554745.dkr.ecr.eu-west-3.amazonaws.com\/fesia255:latest/image: 243560554745.dkr.ecr.eu-west-3.amazonaws.com\/fesia255:1.1/g' deployment.yaml
            kubectl apply -f deployment.yaml
