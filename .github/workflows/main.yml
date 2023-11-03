@@ -46,6 +46,6 @@ jobs:
 
     - name: Deploy to EKS
       run: |
-           kubectl run frontend --image=243560554745.dkr.ecr.eu-west-3.amazonaws.com/fesia255:1.1 --port=80
+           sed -i 's|image: 243560554745.dkr.ecr.eu-west-3.amazonaws.com/fesia255:latest|image: 243560554745.dkr.ecr.eu-west-3.amazonaws.com/fesia255:latest|' deployment.yaml
            kubectl apply -f deployment.yaml
            kubectl apply -f service.yaml
