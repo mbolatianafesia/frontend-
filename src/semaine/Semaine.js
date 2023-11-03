@@ -30,7 +30,7 @@ export default function Semaine() {
            toast.error("Complétez les champs!")
         }
         else{
-           axios.post('http://localhost:5000/semaine/add',{  
+           axios.post('http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/semaine/add',{  
               debut,
               fin
            }).then(()=>{
@@ -47,7 +47,7 @@ export default function Semaine() {
            toast.error("Complétez tous les champs")
         }
         else{
-           axios.put("http://localhost:5000/semaine/edit/"+numItem,{   
+           axios.put("http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/semaine/edit/"+numItem,{   
               debut,
               fin
            }).then((response)=>{
@@ -78,7 +78,7 @@ export default function Semaine() {
 
      //SUPPRESSION
      const deleteItem = (id) => {
-        axios.delete("http://localhost:5000/semaine/delete/"+id).then(function (response) {
+        axios.delete("http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/semaine/delete/"+id).then(function (response) {
           setDisplayConfirmationModal(false);
           toast.success(`Suppression bien réussie`);
       });
@@ -105,7 +105,7 @@ export default function Semaine() {
 	};
 
     function getList() {
-        axios.get("http://localhost:5000/semaine/liste").then(function (response) {
+        axios.get("http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/semaine/liste").then(function (response) {
         if (response.status === 200) {
             setSemaines(response.data);
         } else {
@@ -117,7 +117,7 @@ export default function Semaine() {
     const [numItem, setNumItem] = useState(1);
 	const [showEdit, setShowEdit] = useState(false);
 	const showEditModal = (id) => {
-        axios.get("http://localhost:5000/semaine/"+id).then((res) => setState({...res.data}));
+        axios.get("http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/semaine/"+id).then((res) => setState({...res.data}));
 		setNumItem(id);
 		setShowEdit(true);
 	};

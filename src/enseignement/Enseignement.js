@@ -47,7 +47,7 @@ export default function Enseignement() {
            toast.error("Complétez les champs!")
         }
         else{
-           axios.post('http://localhost:5000/enseignement/add',{  
+           axios.post('http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/enseignement/add',{  
               id_p,
               id_m,
               id_s,
@@ -70,7 +70,7 @@ export default function Enseignement() {
            toast.error("Complétez tous les champs")
         }
         else{
-           axios.put("http://localhost:5000/enseignement/edit/"+numItem,{   
+           axios.put("http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/enseignement/edit/"+numItem,{   
             date_jour,
             jour,
             heure_debut,
@@ -97,7 +97,7 @@ export default function Enseignement() {
 
         if (id_se) {
             const d = id_se.split('&');
-            axios.get("http://localhost:5000/disponible/liste/"+d[0]+"/"+d[1]).then(function (response) {
+            axios.get("http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/disponible/liste/"+d[0]+"/"+d[1]).then(function (response) {
         if (response.status === 200) {
             setEnseignants(response.data);
         } else {
@@ -129,7 +129,7 @@ export default function Enseignement() {
 
      //SUPPRESSION
      const deleteVendeur = (id) => {
-        axios.delete("http://localhost:5000/enseignement/delete/"+id).then(function (response) {
+        axios.delete("http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/enseignement/delete/"+id).then(function (response) {
           setDisplayConfirmationModal(false);
           toast.success(`Suppression bien réussie`);
       });
@@ -156,7 +156,7 @@ export default function Enseignement() {
 	};
 
     function getList() {
-        axios.get("http://localhost:5000/enseignement/liste").then(function (response) {
+        axios.get("http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/enseignement/liste").then(function (response) {
         if (response.status === 200) {
             setEnseignements(response.data);
         } else {
@@ -166,7 +166,7 @@ export default function Enseignement() {
     }
 
     function getMatiere() {
-        axios.get("http://localhost:5000/matiere/liste").then(function (response) {
+        axios.get("http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/matiere/liste").then(function (response) {
         if (response.status === 200) {
             setMatieres(response.data);
         } else {
@@ -176,7 +176,7 @@ export default function Enseignement() {
     }
 
     function getClasse() {
-        axios.get("http://localhost:5000/classe/liste").then(function (response) {
+        axios.get("http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/classe/liste").then(function (response) {
         if (response.status === 200) {
             setClasses(response.data);
         } else {
@@ -186,7 +186,7 @@ export default function Enseignement() {
     }
 
     function getSalle() {
-        axios.get("http://localhost:5000/salle/liste").then(function (response) {
+        axios.get("http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/salle/liste").then(function (response) {
         if (response.status === 200) {
             setSalles(response.data);
         } else {
@@ -196,7 +196,7 @@ export default function Enseignement() {
     }
 
     function getSemaine() {
-        axios.get("http://localhost:5000/semaine/liste").then(function (response) {
+        axios.get("http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/semaine/liste").then(function (response) {
         if (response.status === 200) {
             setSemaines(response.data);
         } else {
@@ -208,7 +208,7 @@ export default function Enseignement() {
     const [numItem, setNumItem] = useState(1);
 	const [showEdit, setShowEdit] = useState(false);
 	const showEditModal = (id) => {
-        axios.get("http://localhost:5000/enseignement/"+id).then((res) => setState({...res.data}));
+        axios.get("http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/enseignement/"+id).then((res) => setState({...res.data}));
 		setNumItem(id);
 		setShowEdit(true);
 	};

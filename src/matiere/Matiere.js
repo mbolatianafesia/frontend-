@@ -28,7 +28,7 @@ export default function Matiere() {
            toast.error("Complétez les champs!")
         }
         else{
-           axios.post('http://localhost:5000/matiere/add',{  
+           axios.post('http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/matiere/add',{  
               libelle
            }).then(()=>{
               setState({libelle:""});
@@ -44,7 +44,7 @@ export default function Matiere() {
            toast.error("Complétez tous les champs")
         }
         else{
-           axios.put("http://localhost:5000/matiere/edit/"+numItem,{   
+           axios.put("http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/matiere/edit/"+numItem,{   
               libelle
            }).then((response)=>{
               if (response.status === 200) {
@@ -74,7 +74,7 @@ export default function Matiere() {
 
      //SUPPRESSION
      const deleteItem = (id) => {
-        axios.delete("http://localhost:5000/matiere/delete/"+id).then(function (response) {
+        axios.delete("http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/matiere/delete/"+id).then(function (response) {
           setDisplayConfirmationModal(false);
           toast.success(`Suppression bien réussie`);
       });
@@ -101,7 +101,7 @@ export default function Matiere() {
 	};
 
     function getList() {
-        axios.get("http://localhost:5000/matiere/liste").then(function (response) {
+        axios.get("http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/matiere/liste").then(function (response) {
         if (response.status === 200) {
             setMatieres(response.data);
         } else {
@@ -113,7 +113,7 @@ export default function Matiere() {
     const [numItem, setNumItem] = useState(1);
 	const [showEdit, setShowEdit] = useState(false);
 	const showEditModal = (id) => {
-        axios.get("http://localhost:5000/matiere/"+id).then((res) => setState({...res.data}));
+        axios.get("http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/matiere/"+id).then((res) => setState({...res.data}));
 		setNumItem(id);
 		setShowEdit(true);
 	};

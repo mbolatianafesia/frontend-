@@ -36,7 +36,7 @@ export default function Disponibilite() {
            toast.error("Complétez les champs!")
         }
         else{
-           axios.post('http://localhost:5000/disponible/add',{  
+           axios.post('http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/disponible/add',{  
               id_p,
               id_se,
               status
@@ -54,7 +54,7 @@ export default function Disponibilite() {
            toast.error("Complétez tous les champs")
         }
         else{
-           axios.put("http://localhost:5000/disponible/edit/"+numItem,{   
+           axios.put("http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/disponible/edit/"+numItem,{   
             status
            }).then((response)=>{
               if (response.status === 200) {
@@ -99,7 +99,7 @@ export default function Disponibilite() {
 
      //SUPPRESSION
      const deleteVendeur = (id) => {
-        axios.delete("http://localhost:5000/disponible/delete/"+id).then(function (response) {
+        axios.delete("http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/disponible/delete/"+id).then(function (response) {
           setDisplayConfirmationModal(false);
           toast.success(`Suppression bien réussie`);
       });
@@ -126,7 +126,7 @@ export default function Disponibilite() {
 	};
 
     function getList() {
-        axios.get("http://localhost:5000/disponible/liste").then(function (response) {
+        axios.get("http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/disponible/liste").then(function (response) {
         if (response.status === 200) {
             setDisponibles(response.data);
         } else {
@@ -136,7 +136,7 @@ export default function Disponibilite() {
     }
 
     function getEnseignant() {
-        axios.get("http://localhost:5000/enseignant/liste").then(function (response) {
+        axios.get("http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/enseignant/liste").then(function (response) {
         if (response.status === 200) {
             setEnseignants(response.data);
         } else {
@@ -146,7 +146,7 @@ export default function Disponibilite() {
     }
 
     function getSemaine() {
-        axios.get("http://localhost:5000/semaine/liste").then(function (response) {
+        axios.get("http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/semaine/liste").then(function (response) {
         if (response.status === 200) {
             setSemaines(response.data);
         } else {
@@ -158,7 +158,7 @@ export default function Disponibilite() {
     const [numItem, setNumItem] = useState(1);
 	const [showEdit, setShowEdit] = useState(false);
 	const showEditModal = (id) => {
-        axios.get("http://localhost:5000/disponible/"+id).then((res) => setState({...res.data}));
+        axios.get("http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/disponible/"+id).then((res) => setState({...res.data}));
 		setNumItem(id);
 		setShowEdit(true);
 	};

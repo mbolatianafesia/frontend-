@@ -29,7 +29,7 @@ export default function Classe() {
            toast.error("Complétez les champs!")
         }
         else{
-           axios.post('http://localhost:5000/classe/add',{  
+           axios.post('http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/classe/add',{  
               design,
               parcours
            }).then(()=>{
@@ -46,7 +46,7 @@ export default function Classe() {
            toast.error("Complétez tous les champs")
         }
         else{
-           axios.put("http://localhost:5000/classe/edit/"+numItem,{   
+           axios.put("http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/classe/edit/"+numItem,{   
               design,
               parcours
            }).then((response)=>{
@@ -77,7 +77,7 @@ export default function Classe() {
 
      //SUPPRESSION
      const deleteItem = (id) => {
-        axios.delete("http://localhost:5000/classe/delete/"+id).then(function (response) {
+        axios.delete("http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/classe/delete/"+id).then(function (response) {
           setDisplayConfirmationModal(false);
           toast.success(`Suppression bien réussie`);
       });
@@ -104,7 +104,7 @@ export default function Classe() {
 	};
 
     function getList() {
-        axios.get("http://localhost:5000/classe/liste").then(function (response) {
+        axios.get("http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/classe/liste").then(function (response) {
         if (response.status === 200) {
             setClasses(response.data);
         } else {
@@ -116,7 +116,7 @@ export default function Classe() {
     const [numItem, setNumItem] = useState(1);
 	const [showEdit, setShowEdit] = useState(false);
 	const showEditModal = (id) => {
-        axios.get("http://localhost:5000/classe/"+id).then((res) => setState({...res.data}));
+        axios.get("http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/classe/"+id).then((res) => setState({...res.data}));
 		setNumItem(id);
 		setShowEdit(true);
 	};

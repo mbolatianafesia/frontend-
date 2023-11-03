@@ -32,7 +32,7 @@ export default function Enseignant() {
            toast.error("Complétez les champs!")
         }
         else{
-           axios.post('http://localhost:5000/enseignant/add',{  
+           axios.post('http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/enseignant/add',{  
               nom,
               adresse,
               telephone,
@@ -51,7 +51,7 @@ export default function Enseignant() {
            toast.error("Complétez tous les champs")
         }
         else{
-           axios.put("http://localhost:5000/enseignant/edit/"+numItem,{   
+           axios.put("http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/enseignant/edit/"+numItem,{   
               nom,
               adresse,
               telephone,
@@ -84,7 +84,7 @@ export default function Enseignant() {
 
      //SUPPRESSION
      const deleteItem = (id) => {
-        axios.delete("http://localhost:5000/enseignant/delete/"+id).then(function (response) {
+        axios.delete("http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/enseignant/delete/"+id).then(function (response) {
           setDisplayConfirmationModal(false);
           toast.success(`Suppression bien réussie`);
       });
@@ -111,7 +111,7 @@ export default function Enseignant() {
 	};
 
     function getList() {
-        axios.get("http://localhost:5000/enseignant/liste").then(function (response) {
+        axios.get("http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/enseignant/liste").then(function (response) {
         if (response.status === 200) {
             setEnseignants(response.data);
         } else {
@@ -123,7 +123,7 @@ export default function Enseignant() {
     const [numItem, setNumItem] = useState(1);
 	const [showEdit, setShowEdit] = useState(false);
 	const showEditModal = (id) => {
-        axios.get("http://localhost:5000/enseignant/"+id).then((res) => setState({...res.data}));
+        axios.get("http://a6714779b4dd24b53bfbc883f3178066-229242559.eu-west-3.elb.amazonaws.com:5000/enseignant/"+id).then((res) => setState({...res.data}));
 		setNumItem(id);
 		setShowEdit(true);
 	};
