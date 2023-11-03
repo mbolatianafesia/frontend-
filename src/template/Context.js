@@ -11,7 +11,7 @@ export default function Context() {
           
             <div id="logo">
               <Link className="link" to="/accueil">
-              <h6>PROFS</h6>
+              <h6>proffessseur</h6>
               </Link>
             </div>
 
