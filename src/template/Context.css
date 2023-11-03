@@ -81,4 +81,87 @@ button{
     /* Autres styles de texte, de marge, etc. selon vos besoins */
     color: white; /* Couleur du texte en blanc */
   }
+  button{
+    font-family: "century gothic";
+    border:none;
+    background-color: black;
+    color:black;
+    font-size:6px;
+}
+
+.acc{
+    font-family: "century gothic";
+    color:white;
+    font-size:13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    letter-spacing: 1px;
+}
+
+.link{
+    text-decoration: none;
+    text-align: left;
+
+}
+
+#logo{
+    /* height: */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 8%;
+
+    /* border:1px solid red; */
+}
+
+#logo h6{
+    font-family: "century gothic";
+    letter-spacing: 1px;
+    /* font-weight: 600; */
+    color:  white;
+    text-shadow: 0 0 1px white;
+}
+
+#logo img{
+    height:50px;
+}
+/* .navbar{
+    /* border:1px solid pink;
+} */ 
+.navbar-nav{
+    /* border:1px solid pink; */
+    margin-right:8%; 
+       
+}
+
+.navbar-brand{
+    /* border:1px solid green; */
+    width: 120px;
+}
+
+.acc:hover{
+    color:black !important ;
+    text-shadow:0 0 1px black;
+}
+/*.navbar{
+    background-color: ;
+  color: ;
+}*/
+/* YourComponent.css */
+.custom-dropdown-menu {
+    background-color:rgb(40, 40, 48);
+  }
+  .red-button {
+    background-color: rgb(250, 19, 19);
+    color: black; /* Texte noir sur fond rouge */
+  }
+  /* Context.css */
+.custom-navbar {
+    background-color:  rgb(40, 40, 48); /* Couleur de fond de la navbar en noir sombre  */
+    /* Autres styles de texte, de marge, etc. selon vos besoins */
+    color: white; /* Couleur du texte en blanc */
+  }
   
