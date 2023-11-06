@@ -15,14 +15,18 @@ button{
     justify-content: center;
     align-self: center;
     letter-spacing: 1px;
+
 }
 
 .link{
     text-decoration: none;
     text-align: left;
-
+   
 }
-
+.hov:hover{
+    background-color: red;
+    color: black;
+}
 #logo{
     /* height: */
     display: flex;
@@ -72,7 +76,7 @@ button{
     background-color:rgb(40, 40, 48);
   }
   .red-button {
-    background-color: rgb(250, 19, 19);
+    background-color: rgb(235, 250, 19);
     color: black; /* Texte noir sur fond rouge */
   }
   /* Context.css */
@@ -164,4 +168,28 @@ button{
     /* Autres styles de texte, de marge, etc. selon vos besoins */
     color: white; /* Couleur du texte en blanc */
   }
+  #images{
+    width:10%; 
+    padding-left: 50%;
+}
+.button-container {
+
+    text-align: left;
+    width: 10px; /* Définissez la largeur souhaitée */
   
+ 
+height: 20px;
+  }
+  .butt-container {
+    position: absolute;
+  bottom: 0;
+  right: 200;
+  
+ 
+margin: 20px; 
+    
+    width: 30px; /* Définissez la largeur souhaitée */
+  
+ 
+height: 20px;
+  }
