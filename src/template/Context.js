@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect  } from 'react';
 import { Link } from "react-router-dom";
 import Dropdown from 'react-bootstrap/Dropdown';
 import './Context.css';
@@ -7,12 +7,20 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 
 export default function Context() {
-  const [buttonClicked, setButtonClicked] = useState(true);
+  const [buttonClicked, setButtonClicked] = useState(() => {
+    const storedButtonClicked = localStorage.getItem('buttonClicked');
+    return storedButtonClicked ? JSON.parse(storedButtonClicked) : true;
+  });
 
+  // Étape 2 : Mettre à jour le localStorage lorsqu'il y a des changements d'état
+  useEffect(() => {
+    localStorage.setItem('buttonClicked', JSON.stringify(buttonClicked));
+  }, [buttonClicked]);
+
+  // Étape 3 : Définir la fonction de gestion du clic
   const handleDropdownItemClick = () => {
     setButtonClicked(!buttonClicked);
   };
-
   return (
   <>
       {
