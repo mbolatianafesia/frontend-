@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import Dropdown from 'react-bootstrap/Dropdown';
 import './Context.css';
+import { useLocation } from 'react-router-dom';
+import * as FaIcons from 'react-icons/fa';
+import * as AiIcons from 'react-icons/ai';
 
 export default function Context() {
   const [buttonClicked, setButtonClicked] = useState(true);
@@ -12,18 +15,17 @@ export default function Context() {
 
   return (
   <>
-    <header>
       {
         buttonClicked ? 
         <div className="button-container">
-        <button onClick={handleDropdownItemClick}>
-        <img src="images/io.png" alt="Description de l'image" />
-        Click me
-      </button>
+           <Link to='#' className='menu-bars'>
+            <FaIcons.FaBars onClick={handleDropdownItemClick}/>
+          </Link>
       </div>
       
           :
       
+    <header>
        <nav className={`navbar navbar-expand-md custom-navbar`}>
         <div id="logo">
           <Link className="link" to="/accueil">
@@ -72,17 +74,15 @@ export default function Context() {
                 <Dropdown.Item onClick={handleDropdownItemClick} className='hov'><Link className="link acc" to="/disponible">Disponibilité</Link></Dropdown.Item>
                 <Dropdown.Item onClick={handleDropdownItemClick} className='hov'><Link className="link acc" to="/enseignement">Assigner un cours</Link></Dropdown.Item>
               </Dropdown.Menu>
-              <button onClick={handleDropdownItemClick} >
-              <div className="butt-container">
-                    <img src={Image} alt="images/menu2.jpg"/>
-                </div>
-              </button>
             </Dropdown>
           </div>
+              <Link to='#' className='menu-bars close-btn' onClick={handleDropdownItemClick} >
+                <AiIcons.AiOutlineClose />
+              </Link>
         </div>
       </nav>
-      }
     </header>
+      }
     </>
   );
 }

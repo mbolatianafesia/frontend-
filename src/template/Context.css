@@ -88,8 +88,8 @@ button{
   button{
     font-family: "century gothic";
     border:none;
-    background-color: black;
-    color:black;
+    background-color: white;
+    color: white;
     font-size:6px;
 }
 
@@ -172,13 +172,27 @@ button{
     width:10%; 
     padding-left: 50%;
 }
+.menu-bars {
+    margin: 0 1rem;
+        font-size: 2rem;
+        z-index: 520000;
+        background: none;
+      }
+.close-btn{
+    background-color: none!important;
+}
+button{
+    background-color: none!important;
+}
 .button-container {
 
     text-align: left;
-    width: 10px; /* Définissez la largeur souhaitée */
   
  
-height: 20px;
+    background-color: rgb(40, 40, 48);
+    z-index: 5000;
+    height: 50px;
+    width: fit-content;
   }
   .butt-container {
     position: absolute;
