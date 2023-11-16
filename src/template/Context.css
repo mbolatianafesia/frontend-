@@ -180,16 +180,21 @@ button{
       }
 .close-btn{
     background-color: none!important;
+ position: absolute;
+ top: 5px;
+ right: 0;
 }
 button{
     background-color: none!important;
 }
 .button-container {
-
+ position: absolute;
+ top:5px;
+ left: 10px;
     text-align: left;
   
  
-    background-color: rgb(40, 40, 48);
+    background-color: rgb(255, 255, 255);
     z-index: 5000;
     height: 50px;
     width: fit-content;
