@@ -194,7 +194,7 @@ button{
     text-align: left;
   
  
-    background-color: black(255, 255, 255);/*ovaina */
+    background-color: rgb(255, 255, 255);
     z-index: 5000;
     height: 50px;
     width: fit-content;
